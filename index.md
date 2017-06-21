@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/tianhongye/ws/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tianhongye/ws/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<!DOCTYPE HTML>
+<html>
+   <head>
+   <meta charset="utf-8">
+   <title>W3Cschool教程(w3cschool.cn)</title>
+	
+      <script type="text/javascript">
+         function WebSocketTest()
+         {
+            if ("WebSocket" in window)
+            {
+               alert("您的浏览器支持 WebSocket!");
+               
+               // 打开一个 web socket
+               var ws = new WebSocket("ws://localhost:8088/echo");
+				
+               ws.onopen = function()
+               {
+                  // Web Socket 已连接上，使用 send() 方法发送数据
+                  ws.send("***^*&^*&(&(**&)(*)(8)(*)");
+                  alert("数据发送中...");
+               };
+				
+               ws.onmessage = function (evt) 
+               { 
+                  var received_msg = evt.data;
+                  alert("数据已接收...");
+               };
+				
+               ws.onclose = function()
+               { 
+                  // 关闭 websocket
+                  alert("连接已关闭..."); 
+               };
+            }
+            
+            else
+            {
+               // 浏览器不支持 WebSocket
+               alert("您的浏览器不支持 WebSocket!");
+            }
+         }
+      </script>
+		
+   </head>
+   <body>
+   
+      <div id="sse">
+         <a href="javascript:WebSocketTest()">运行 WebSocket</a>
+      </div>
+      
+   </body>
+</html>
